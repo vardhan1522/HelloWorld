@@ -14,7 +14,7 @@ organizational_units:
     core_accounts:
       # Security account
       - name: security
-        email: DL.POSTI.SEC2@INFOSYS.COM
+        email: vardhanreddy2433@gmail.com
         ssm_parameters:
           - name: /org/member/security/account_id
             value: $[AccountId]
@@ -76,7 +76,7 @@ organizational_units:
             #  - us-west-2
       # Logging account
       - name: log-archive
-        email: DL.POSTI.LOG2@INFOSYS.COM
+        email: vardhanreddy2436@gmail.com
         ssm_parameters:
           - name: /org/member/logging/account_id
             value: $[AccountId]
@@ -90,7 +90,7 @@ organizational_units:
                 value: $[output_BucketName]
       # Shared Services account
       - name: shared-services
-        email: DL.POSTI.SHARED2@INFOSYS.COM
+        email: vardhanreddy2434@gmail.com
         ssm_parameters:
           - name: /org/member/sharedservices/account_id
             value: $[AccountId]
