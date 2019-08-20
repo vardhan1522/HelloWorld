@@ -51,10 +51,169 @@ Parameters:
     AllowedValues:
     - true
     - false
+  AutoscalingGroupElbHealthcheckRequiredRule:
+    Type: String
+    Description: "Enables the Auto Scaling for ELB Health Check config rule. To disable, change the parameter value to false."
+    Default: true
+    AllowedValues:
+    - true
+    - false
+  Ec2InstancesInVpcRule:
+    Type: String
+    Description: "Enables the AWS managed Ec2 Instance In VPC config rule. To disable, change the parameter value to false."
+    Default: true
+    AllowedValues:
+    - true
+    - false
+  Ec2ManagedInstanceAssocaitonComplianceStatusCheckRule:
+    Type: String
+    Description: "Enables the AWS managed Ec2Managed Instance Assocaiton Compliance Status Check config rule. To disable, change the parameter value to false."
+    Default: true
+    AllowedValues:
+    - true
+    - false
+  DbInstanceBackUpEnabledRule:
+    Type: String
+    Description: "Enables the AWS managed Db Instance BackUp config rule. To disable, change the parameter value to false."
+    Default: true
+    AllowedValues:
+    - true
+    - false
+  RdsMultiAzSupportRule:
+    Type: String
+    Description: "Enables the AWS managed Rds Multi Az Support config rule. To disable, change the parameter value to false."
+    Default: true
+    AllowedValues:
+    - true
+    - false 
+  CloudTrailCloudWatchLogsEnabledRule:
+    Type: String
+    Description: "Enables the AWS managed CloudTrail CloudWatch Logs Enabled config rule. To disable, change the parameter value to false."
+    Default: true
+    AllowedValues:
+    - true
+    - false
+  CloudTrailEncryptionEnabledRule:
+    Type: String
+    Description: "Enables the AWS managed CloudTrail Encryption Enabled config rule. To disable, change the parameter value to false."
+    Default: true
+    AllowedValues:
+    - true
+    - false 
+  CloudtrailEnabledRule:
+    Type: String
+    Description: "Enables the AWS managed Cloudtrail Enabled config rule. To disable, change the parameter value to false."
+    Default: true
+    AllowedValues:
+    - true
+    - false  
+  MultiRegionCloudTrailEnabledRule:
+    Type: String
+    Description: "Enables the AWS managed MultiRegion CloudTrail Enabled config rule. To disable, change the parameter value to false."
+    Default: true
+    AllowedValues:
+    - true
+    - false 
+  RequiredTagsRule:
+    Type: String
+    Description: "Enables the AWS managed Required Tags Enabled config rule. To disable, change the parameter value to false."
+    Default: true
+    AllowedValues:
+    - true
+    - false
+  VpcFlowLogsEnabledRule:
+    Type: String
+    Description: "Enables the AWS managed VpcFlowLogs Enabled config rule. To disable, change the parameter value to false."
+    Default: true
+    AllowedValues:
+    - true
+    - false
+  AccessKeysRotatedRule:
+    Type: String
+    Description: "Enables the AWS managed AccessKeys Rotated   config rule. To disable, change the parameter value to false."
+    Default: true
+    AllowedValues:
+    - true
+    - false
+  IamUserMfaEnabledRule:
+    Type: String
+    Description: "Enables the AWS managed Iam User Mfa Enabled  config rule. To disable, change the parameter value to false."
+    Default: true
+    AllowedValues:
+    - true
+    - false
+  MfaEnabledForIamConsoleAccessRule:
+    Type: String
+    Description: "Enables the AWS managed Mfa Enabled For Iam Console Access config rule. To disable, change the parameter value to false."
+    Default: true
+    AllowedValues:
+    - true
+    - false
+  S3BucketLoggingEnabledRule:
+    Type: String
+    Description: "Enables the AWS managed S3Bucket Logging Enabled config rule. To disable, change the parameter value to false."
+    Default: true
+    AllowedValues:
+    - true
+    - false
+  CloudwatchAlarmActionCheck:
+    Type: String
+    Description: "Enables the AWS managed Cloudwatch Alarm Action Check config rule. To disable, change the parameter value to false."
+    Default: true
+    AllowedValues:
+    - true
+    - false
+  RootAccountMfaEnabled:
+    Type: String
+    Description: "Enables the AWS managed Root Account Mfa Enabled config rule. To disable, change the parameter value to false."
+    Default: true
+    AllowedValues:
+    - true
+    - false
   KMSId:
     Type: String
     Description: "[Optional] Id or ARN of the KMS key that is used to encrypt the volume."
     Default: ""
+  vpcId:
+    Type: String
+    Description: "Eneter the VPC ID."
+    Default: ""
+  backupRetentionPeriod:
+    Type: String
+    Description: "Enter the number of days to have the backup."
+    Default: "7"
+  preferredBackupWindow:
+    Type: String
+    Description: "Enter the time where backup can be performed( non-bussniess hours)."
+    Default: "11"
+  checkReadReplicas:
+    Type: String
+    Description: "Enter the Number of check ReadReplicas for Database."
+    Default: "2"
+  expectedDeliveryWindowAge:
+    Type: String
+    Description: "Enter the Number to get delivery of CloudWatch logs that satisfies compliance."
+    Default: "12"
+  s3BucketName:
+    Type: String
+    Description: "Enter the Name of S3 bucket for CloudTrail to deliver log files to."
+    Default: ""
+  snsTopicArn:
+    Type: String
+    Description: "Enter the SNS topic ARN for CloudTrail to use for notifications."
+    Default: ""
+  cloudWatchLogsLogGroupArn:
+    Type: String
+    Description: "Enter the CloudWatch log group ARN for CloudTrail to send data to."
+    Default: ""
+  includeManagementEvents:
+    Type: String
+    Description: "Enter the CloudWatch log group ARN for CloudTrail to send data to."
+    Default: ""
+  readWriteType:
+    Type: String
+    Description: "Type of events to record. Valid values are ReadOnly, WriteOnly and ALL."
+    Default: "ALL"
   MaximumExecutionFrequency:
     Type: String
     Default: TwentyFour_Hours
@@ -88,6 +247,88 @@ Parameters:
     Type: String
     Default: '4333'
     Description: Blocked TCP port number.
+  tag1Key:
+    Type: String
+    Default: 'Application Name'
+    Description: tagging key .
+  tag2Key:
+    Type: String
+    Default: 'Cost Center'
+    Description: tagging key .
+  tag3Key:
+    Type: String
+    Default: 'Work Number'
+    Description: tagging key .
+  tag4Key:
+    Type: String
+    Default: 'DailyVolumeBackup'
+    Description: tagging key .
+  tag5Key:
+    Type: String
+    Default: 'Application Solution Manager'
+    Description: tagging key .
+  tag6Key:
+    Type: String
+    Default: 'Application Service Manager'
+    Description: tagging key .
+  trafficType:
+    Type: String
+    Default: 'ALL'
+    Description: TrafficType of flow logs
+  maxAccessKeyAge:
+    Type: String
+    Default: '90'
+    Description: Maximum number of days without rotation. Default 90.
+    MinLength: '1'
+    ConstraintDescription: This parameter is required.
+  targetBucket:
+    Type: String
+    Default: ''
+    Description: Target S3 bucket for storing server access logs.
+  targetPrefix:
+    Type: String
+    Default: ''
+    Description: Prefix of the S3 bucket for storing server access logs.
+  ConfigRuleName:
+    Type: String
+    Default: cloudwatch-alarm-action-check
+    Description: The name that you assign to the AWS Config rule.
+    MinLength: '1'
+    ConstraintDescription: This parameter is required.
+  alarmActionRequired:
+    Type: String
+    Default: 'true'
+    Description: Alarms have at least one action.
+    MinLength: '1'
+    ConstraintDescription: This parameter is required.
+  insufficientDataActionRequired:
+    Type: String
+    Default: 'true'
+    Description: Alarms have at least one action when the alarm transitions to the
+      INSUFFICIENT_DATA state from any other state.
+    MinLength: '1'
+    ConstraintDescription: This parameter is required.
+  okActionRequired:
+    Type: String
+    Default: 'false'
+    Description: Alarms have at least one action when the alarm transitions to an
+      OK state from any other state.
+    MinLength: '1'
+    ConstraintDescription: This parameter is required.
+  action1:
+    Type: String
+    Default: ''
+    Description: The action to execute, specified as an ARN.
+  action2:
+    Type: String
+    Default: ''
+    Description: The action to execute, specified as an ARN.
+  ConfigRuleName:
+    Type: String
+    Default: root-account-mfa-enabled
+    Description: The name that you assign to the AWS Config rule.
+    MinLength: '1'
+    ConstraintDescription: This parameter is required.
 
 Conditions:
   EnableEncryptedVolumes: !Equals
@@ -110,6 +351,57 @@ Conditions:
     - 'true'
   EnableRestrictedSshPolicy: !Equals
     - !Ref EnableRestrictedSshRule
+    - 'true'
+  EnableAutoscalingGroupElbHealthcheckRequiredPolicy: !Equals
+    - !Ref AutoscalingGroupElbHealthcheckRequiredRule
+    - 'true'
+  EnableEc2InstancesInVpcRulePolicy: !Equals
+    - !Ref Ec2InstancesInVpcRule
+    - 'true'
+  EnableEc2ManagedInstanceAssocaitonComplianceStatusCheckRulePolicy: !Equals
+    - !Ref Ec2ManagedInstanceAssocaitonComplianceStatusCheckRule
+    - 'true'
+  EnableDbInstanceBackUpEnabledRulePolicy: !Equals
+    - !Ref DbInstanceBackUpEnabledRule
+    - 'true'
+  EnableRdsMultiAzSupportRulePolicy: !Equals
+    - !Ref RdsMultiAzSupportRule
+    - 'true'
+  EnableCloudTrailCloudWatchLogsEnabledRulePolicy: !Equals
+    - !Ref CloudTrailCloudWatchLogsEnabledRule
+    - 'true'
+  EnableCloudTrailEncryptionEnabledRulePolicy: !Equals
+    - !Ref CloudTrailEncryptionEnabledRule
+    - 'true'
+  EnableCloudtrailEnabledRulePolicy: !Equals
+    - !Ref CloudtrailEnabledRule
+    - 'true'
+  EnableMultiRegionCloudTrailEnabledRulePolicy: !Equals
+    - !Ref MultiRegionCloudTrailEnabledRule
+    - 'true'
+  EnableRequiredTagsRulePolicy: !Equals
+    - !Ref RequiredTagsRule
+    - 'true'
+  VpcFlowLogsEnabledRulePolicy: !Equals
+    - !Ref VpcFlowLogsEnabledRule
+    - 'true'
+  AccessKeysRotatedRulePolicy: !Equals
+    - !Ref AccessKeysRotatedRule
+    - 'true'
+  IamUserMfaEnabledRulePolicy: !Equals
+    - !Ref IamUserMfaEnabledRule
+    - 'true'
+  MfaEnabledForIamConsoleAccessRulePolicy: !Equals
+    - !Ref MfaEnabledForIamConsoleAccessRule
+    - 'true'
+  S3BucketLoggingEnabledRulePolicy: !Equals
+    - !Ref S3BucketLoggingEnabledRule
+    - 'true'
+  CloudwatchAlarmActionCheckPolicy: !Equals
+    - !Ref CloudwatchAlarmActionCheck
+    - 'true'
+  RootAccountMfaEnabledPolicy: !Equals
+    - !Ref RootAccountMfaEnabled
     - 'true'
   HasKMSKeyId: !Not
     - !Equals
@@ -140,8 +432,147 @@ Conditions:
     - Fn::Equals:
       - ''
       - Ref: blockedPort5
-
-
+  maxAccessKeyAge:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: maxAccessKeyAge
+  expectedDeliveryWindowAge:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: expectedDeliveryWindowAge
+  s3BucketName:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: s3BucketName
+  snsTopicArn:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: snsTopicArn
+  cloudWatchLogsLogGroupArn:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: cloudWatchLogsLogGroupArn
+  tag1Key:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: tag1Key
+  tag2Key:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: tag2Key
+  tag3Key:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: tag3Key
+  tag4Key:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: tag4Key
+  tag5Key:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: tag5Key
+  tag6Key:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: tag6Key
+  s3BucketName:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: s3BucketName
+  snsTopicArn:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: snsTopicArn
+  cloudWatchLogsLogGroupArn:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: cloudWatchLogsLogGroupArn
+  includeManagementEvents:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: includeManagementEvents
+  readWriteType:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: readWriteType
+  trafficType:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: trafficType  
+  targetBucket:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: targetBucket
+  targetPrefix:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: targetPrefix   
+  vpcId:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: vpcId 
+  backupRetentionPeriod:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: backupRetentionPeriod
+  preferredBackupWindow:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: preferredBackupWindow
+  checkReadReplicas:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: checkReadReplicas
+  alarmActionRequired:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: alarmActionRequired
+  insufficientDataActionRequired:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: insufficientDataActionRequired
+  okActionRequired:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: okActionRequired
+  action1:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: action1
+  action2:
+    Fn::Not:
+    - Fn::Equals:
+      - ''
+      - Ref: action2
+   
 Metadata:
   AWS::CloudFormation::Interface:
     ParameterGroups:
@@ -155,6 +586,25 @@ Metadata:
       - EnableS3ServerSideEncryptionRule
       - EnableRestrictedCommonPortsRule
       - EnableRestrictedSshRule
+      - AutoscalingGroupElbHealthcheckRequiredRule
+      - Ec2InstancesInVpcRule
+      - Ec2ManagedInstanceAssocaitonComplianceStatusCheckRule
+      - DbInstanceBackUpEnabledRule
+      - RdsMultiAzSupportRule
+      - CloudTrailCloudWatchLogsEnabledRule
+      - CloudTrailEncryptionEnabledRule
+      - CloudtrailEnabledRule
+      - CloudwatchAlarmActionCheckRule
+      - CloudwatchResourceCheckRule
+      - MultiRegionCloudTrailEnabledRule
+      - RequiredTagsRule
+      - VpcFlowLogsEnabledRule
+      - AccessKeysRotatedRule
+      - IamUserMfaEnabledRule
+      - MfaEnabledForIamConsoleAccessRule
+      - S3BucketLoggingEnabledRule
+      - CloudwatchAlarmActionCheck
+      - RootAccountMfaEnabled
     - Label:
         default: Misc Parameters
       Parameters:
@@ -168,7 +618,12 @@ Metadata:
       - blockedPort3
       - blockedPort4
       - blockedPort5
-
+      - tag1Key
+      - tag2Key
+      - tag3Key
+      - tag4Key
+      - tag5Key
+      - tag6Key
 Resources:
   CheckForEncryptedVolumes:
     Type: AWS::Config::ConfigRule
@@ -291,3 +746,395 @@ Resources:
       Source:
         Owner: AWS
         SourceIdentifier: INCOMING_SSH_DISABLED
+  CheckAutoscalingGroupElbHealthcheckRequiredPolicy:
+    Type: AWS::Config::ConfigRule
+    Condition: EnableAutoscalingGroupElbHealthcheckRequiredPolicy
+    Properties:
+      Description: Checks whether your Auto Scaling groups that are associated with
+        a load balancer are using Elastic Load Balancing health checks.
+      InputParameters: {}
+      Scope:
+        ComplianceResourceTypes:
+        - AWS::AutoScaling::AutoScalingGroup
+      Source:
+        Owner: AWS
+        SourceIdentifier: AUTOSCALING_GROUP_ELB_HEALTHCHECK_REQUIRED
+  CheckEc2InstancesInVpcRulePolicy:
+    Type: AWS::Config::ConfigRule
+    Condition: EnableEc2InstancesInVpcRulePolicy
+    Properties:
+      Description: Checks whether your EC2 instances belong to a virtual private cloud (VPC).
+      InputParameters:
+        vpcId:
+          Fn::If:
+          - vpcId
+          - Ref: vpcId
+          - Ref: AWS::NoValue
+      Scope:
+        ComplianceResourceTypes:
+        - AWS::EC2::Instance
+      Source:
+        Owner: AWS
+        SourceIdentifier: INSTANCES_IN_VPC
+  CheckEc2ManagedInstanceAssocaitonComplianceStatusCheckRulePolicy:
+    Type: AWS::Config::ConfigRule
+    Condition: EnableEc2ManagedInstanceAssocaitonComplianceStatusCheckRulePolicy
+    Properties:
+       Description: Checks whether the compliance status of the AWS Systems Manager
+        association compliance is COMPLIANT or NON_COMPLIANT after the association
+        execution on the instance. The rule is compliant if the field status is COMPLIANT.
+       InputParameters: {}
+       Scope:
+         ComplianceResourceTypes:
+         - AWS::SSM::AssociationCompliance
+       Source:
+         Owner: AWS
+         SourceIdentifier: EC2_MANAGEDINSTANCE_ASSOCIATION_COMPLIANCE_STATUS_CHECK
+  CheckDbInstanceBackUpEnabledRulePolicy:
+    Type: AWS::Config::ConfigRule
+    Condition: EnableDbInstanceBackUpEnabledRulePolicy
+    Properties:  
+      Description: Checks whether RDS DB instances have backups enabled.
+      InputParameters:
+        backupRetentionPeriod:
+          Fn::If:
+          - backupRetentionPeriod
+          - Ref: backupRetentionPeriod
+          - Ref: AWS::NoValue
+        preferredBackupWindow:
+          Fn::If:
+          - preferredBackupWindow
+          - Ref: preferredBackupWindow
+          - Ref: AWS::NoValue
+        checkReadReplicas:
+          Fn::If:
+          - checkReadReplicas
+          - Ref: checkReadReplicas
+          - Ref: AWS::NoValue
+      Scope:
+        ComplianceResourceTypes:
+        - AWS::RDS::DBInstance
+      Source:
+        Owner: AWS
+        SourceIdentifier: DB_INSTANCE_BACKUP_ENABLED
+  CheckEnableRdsMultiAzSupportRulePolicy:
+    Type: AWS::Config::ConfigRule
+    Condition: EnableRdsMultiAzSupportRulePolicy
+    Properties:    
+      Description: Checks whether high availability is enabled for your RDS DB instances.
+      InputParameters: {}
+      Scope:
+        ComplianceResourceTypes:
+        - AWS::RDS::DBInstance
+      Source:
+        Owner: AWS
+        SourceIdentifier: RDS_MULTI_AZ_SUPPORT
+  CheckEnableCloudTrailCloudWatchLogsEnabledRulePolicy:
+    Type: AWS::Config::ConfigRule
+    Condition: EnableCloudTrailCloudWatchLogsEnabledRulePolicy
+    Properties:
+      Description: Checks whether AWS CloudTrail trails are configured to send logs
+        to Amazon CloudWatch logs. The trail is non-compliant if the CloudWatchLogsLogGroupArn
+        property of the trail is empty.
+      InputParameters:
+        expectedDeliveryWindowAge:
+          Fn::If:
+          - expectedDeliveryWindowAge
+          - Ref: expectedDeliveryWindowAge
+          - Ref: AWS::NoValue
+      Scope: {}
+      Source:
+        Owner: AWS
+        SourceIdentifier: CLOUD_TRAIL_CLOUD_WATCH_LOGS_ENABLED
+      MaximumExecutionFrequency:
+        Ref: MaximumExecutionFrequency
+  CheckEnableCloudTrailEncryptionEnabledRulePolicy:
+    Type: AWS::Config::ConfigRule
+    Condition: EnableCloudTrailEncryptionEnabledRulePolicy
+    Properties:
+      Description: Checks whether AWS CloudTrail is configured to use the server side
+        encryption (SSE) AWS Key Management Service (AWS KMS) customer master key
+        (CMK) encryption. The rule is compliant if the KmsKeyId is defined.
+      InputParameters: {}
+      Scope: {}
+      Source:
+        Owner: AWS
+        SourceIdentifier: CLOUD_TRAIL_ENCRYPTION_ENABLED
+      MaximumExecutionFrequency:
+        Ref: MaximumExecutionFrequency
+  CheckEnableCloudtrailEnabledRulePolicy:
+    Type: AWS::Config::ConfigRule
+    Condition: EnableCloudtrailEnabledRulePolicy
+    Properties:
+      Description: Checks whether AWS CloudTrail is enabled in your AWS account.
+      InputParameters:
+        s3BucketName:
+          Fn::If:
+          - s3BucketName
+          - Ref: s3BucketName
+          - Ref: AWS::NoValue
+        snsTopicArn:
+          Fn::If:
+          - snsTopicArn
+          - Ref: snsTopicArn
+          - Ref: AWS::NoValue
+        cloudWatchLogsLogGroupArn:
+          Fn::If:
+          - cloudWatchLogsLogGroupArn
+          - Ref: cloudWatchLogsLogGroupArn
+          - Ref: AWS::NoValue
+      Scope: {}
+      Source:
+        Owner: AWS
+        SourceIdentifier: CLOUD_TRAIL_ENABLED
+      MaximumExecutionFrequency:
+        Ref: MaximumExecutionFrequency
+  CheckEnableMultiRegionCloudTrailEnabledRulePolicy:
+    Type: AWS::Config::ConfigRule
+    Condition: EnableMultiRegionCloudTrailEnabledRulePolicy
+    Properties:
+      Description: Checks that there is at least one multi-region AWS CloudTrail.
+        The rule is non-compliant if the trails do not match input parameters
+      InputParameters:
+        s3BucketName:
+          Fn::If:
+          - s3BucketName
+          - Ref: s3BucketName
+          - Ref: AWS::NoValue
+        snsTopicArn:
+          Fn::If:
+          - snsTopicArn
+          - Ref: snsTopicArn
+          - Ref: AWS::NoValue
+        cloudWatchLogsLogGroupArn:
+          Fn::If:
+          - cloudWatchLogsLogGroupArn
+          - Ref: cloudWatchLogsLogGroupArn
+          - Ref: AWS::NoValue
+        includeManagementEvents:
+          Fn::If:
+          - includeManagementEvents
+          - Ref: includeManagementEvents
+          - Ref: AWS::NoValue
+        readWriteType:
+          Fn::If:
+          - readWriteType
+          - Ref: readWriteType
+          - Ref: AWS::NoValue
+      Scope: {}
+      Source:
+        Owner: AWS
+        SourceIdentifier: MULTI_REGION_CLOUD_TRAIL_ENABLED
+      MaximumExecutionFrequency:
+        Ref: MaximumExecutionFrequency
+  CheckEnableRequiredTagsRulePolicy:
+    Type: AWS::Config::ConfigRule
+    Condition: EnableRequiredTagsRulePolicy
+    Properties:
+      Description: Checks whether your resources have the tags that you specify.
+      InputParameters:
+        tag1Key:
+          Fn::If:
+          - tag1Key
+          - Ref: tag1Key
+          - Ref: AWS::NoValue
+        tag2Key:
+          Fn::If:
+          - tag2Key
+          - Ref: tag2Key
+          - Ref: AWS::NoValue
+        tag3Key:
+          Fn::If:
+          - tag3Key
+          - Ref: tag3Key
+          - Ref: AWS::NoValue
+        tag4Key:
+          Fn::If:
+          - tag4Key
+          - Ref: tag4Key
+          - Ref: AWS::NoValue
+        tag5Key:
+          Fn::If:
+          - tag5Key
+          - Ref: tag5Key
+          - Ref: AWS::NoValue
+        tag6Key:
+          Fn::If:
+          - tag6Key
+          - Ref: tag6Key
+          - Ref: AWS::NoValue
+      Scope:
+        ComplianceResourceTypes:
+        - AWS::ACM::Certificate
+        - AWS::AutoScaling::AutoScalingGroup
+        - AWS::CloudFormation::Stack
+        - AWS::CodeBuild::Project
+        - AWS::DynamoDB::Table
+        - AWS::EC2::CustomerGateway
+        - AWS::EC2::Instance
+        - AWS::EC2::InternetGateway
+        - AWS::EC2::NetworkAcl
+        - AWS::EC2::NetworkInterface
+        - AWS::EC2::RouteTable
+        - AWS::EC2::SecurityGroup
+        - AWS::EC2::Subnet
+        - AWS::EC2::Volume
+        - AWS::EC2::VPC
+        - AWS::EC2::VPNConnection
+        - AWS::EC2::VPNGateway
+        - AWS::ElasticLoadBalancing::LoadBalancer
+        - AWS::ElasticLoadBalancingV2::LoadBalancer
+        - AWS::RDS::DBInstance
+        - AWS::RDS::DBSecurityGroup
+        - AWS::RDS::DBSnapshot
+        - AWS::RDS::DBSubnetGroup
+        - AWS::RDS::EventSubscription
+        - AWS::Redshift::Cluster
+        - AWS::Redshift::ClusterParameterGroup
+        - AWS::Redshift::ClusterSecurityGroup
+        - AWS::Redshift::ClusterSnapshot
+        - AWS::Redshift::ClusterSubnetGroup
+        - AWS::S3::Bucket
+      Source:
+        Owner: AWS
+        SourceIdentifier: REQUIRED_TAGS
+  CheckVpcFlowLogsEnabledRulePolicy:
+    Type: AWS::Config::ConfigRule
+    Condition: VpcFlowLogsEnabledRulePolicy
+    Properties:
+      Description: Checks whether Amazon Virtual Private Cloud flow logs are found
+        and enabled for Amazon VPC.
+      InputParameters:
+        trafficType:
+          Fn::If:
+          - trafficType
+          - Ref: trafficType
+          - Ref: AWS::NoValue
+      Scope: {}
+      Source:
+        Owner: AWS
+        SourceIdentifier: VPC_FLOW_LOGS_ENABLED
+      MaximumExecutionFrequency:
+        Ref: MaximumExecutionFrequency
+  CheckAccessKeysRotatedRulePolicy:
+    Type: AWS::Config::ConfigRule
+    Condition: AccessKeysRotatedRulePolicy
+    Properties:
+      Description: Checks whether the active access keys are rotated within the number
+        of days specified in maxAccessKeyAge. The rule is non-compliant if the access
+        keys have not been rotated for more than maxAccessKeyAge number of days.
+      InputParameters:
+        maxAccessKeyAge:
+          Fn::If:
+          - maxAccessKeyAge
+          - Ref: maxAccessKeyAge
+          - Ref: AWS::NoValue
+      Scope: {}
+      Source:
+        Owner: AWS
+        SourceIdentifier: ACCESS_KEYS_ROTATED
+      MaximumExecutionFrequency:
+        Ref: MaximumExecutionFrequency
+  CheckIamUserMfaEnabledRulePolicy:
+    Type: AWS::Config::ConfigRule
+    Condition: IamUserMfaEnabledRulePolicy
+    Properties:
+      Description: Checks whether the AWS Identity and Access Management users have
+        multi-factor authentication (MFA) enabled.
+      InputParameters: {}
+      Scope: {}
+      Source:
+        Owner: AWS
+        SourceIdentifier: IAM_USER_MFA_ENABLED
+      MaximumExecutionFrequency:
+        Ref: MaximumExecutionFrequency
+  CheckMfaEnabledForIamConsoleAccessRulePolicy:
+    Type: AWS::Config::ConfigRule
+    Condition: MfaEnabledForIamConsoleAccessRulePolicy
+    Properties:
+      Description: Checks whether AWS Multi-Factor Authentication (MFA) is enabled
+        for all AWS Identity and Access Management (IAM) users that use a console
+        password. The rule is compliant if MFA is enabled.
+      InputParameters: {}
+      Scope: {}
+      Source:
+        Owner: AWS
+        SourceIdentifier: MFA_ENABLED_FOR_IAM_CONSOLE_ACCESS
+      MaximumExecutionFrequency:
+        Ref: MaximumExecutionFrequency
+  CheckS3BucketLoggingEnabledRulePolicy:
+    Type: AWS::Config::ConfigRule
+    Condition: S3BucketLoggingEnabledRulePolicy
+    Properties:
+      Description: Checks whether logging is enabled for your S3 buckets.
+      InputParameters:
+        targetBucket:
+          Fn::If:
+          - targetBucket
+          - Ref: targetBucket
+          - Ref: AWS::NoValue
+        targetPrefix:
+          Fn::If:
+          - targetPrefix
+          - Ref: targetPrefix
+          - Ref: AWS::NoValue
+      Scope:
+        ComplianceResourceTypes:
+        - AWS::S3::Bucket
+      Source:
+        Owner: AWS
+        SourceIdentifier: S3_BUCKET_LOGGING_ENABLED
+  CheckCloudwatchAlarmActionCheck:
+    Type: AWS::Config::ConfigRule
+    Condition: CloudwatchAlarmActionCheckPolicy
+    Properties:
+      Description: Checks whether CloudWatch alarms have at least one alarm action,
+        one INSUFFICIENT_DATA action, or one OK action enabled. Optionally, checks
+        whether any of the actions matches one of the specified ARNs.
+      InputParameters:
+        alarmActionRequired:
+          Fn::If:
+          - alarmActionRequired
+          - Ref: alarmActionRequired
+          - Ref: AWS::NoValue
+        insufficientDataActionRequired:
+          Fn::If:
+          - insufficientDataActionRequired
+          - Ref: insufficientDataActionRequired
+          - Ref: AWS::NoValue
+        okActionRequired:
+          Fn::If:
+          - okActionRequired
+          - Ref: okActionRequired
+          - Ref: AWS::NoValue
+        action1:
+          Fn::If:
+          - action1
+          - Ref: action1
+          - Ref: AWS::NoValue
+        action2:
+          Fn::If:
+          - action2
+          - Ref: action2
+          - Ref: AWS::NoValue
+      Scope:
+        ComplianceResourceTypes:
+        - AWS::CloudWatch::Alarm
+      Source:
+        Owner: AWS
+        SourceIdentifier: CLOUDWATCH_ALARM_ACTION_CHECK
+  CheckRootAccountMfaEnabledPolicy:
+    Type: AWS::Config::ConfigRule
+    Condition: RootAccountMfaEnabledPolicy
+    Properties:
+      Description: Checks whether the root user of your AWS account requires multi-factor
+        authentication for console sign-in.
+      InputParameters: {}
+      Scope: {}
+      Source:
+        Owner: AWS
+        SourceIdentifier: ROOT_ACCOUNT_MFA_ENABLED
+      MaximumExecutionFrequency:
+        Ref: MaximumExecutionFrequency
+
+
